@@ -22,14 +22,6 @@ buttton.addEventListener("click", () => {
     let elemnt = creatToDo(input.value);
     todoList.appendChild(elemnt);
     document.getElementById("form").reset();
-    console.log(elemnt.length);
   }
 });
 
-todoList.addEventListener("click", function (ev) {
-  if (ev.target.tagName === "li") {
-    ev.target.classList.toggle("checked");
-  }
-},
-  false
-);
