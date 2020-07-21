@@ -15,8 +15,21 @@ function creatToDo(task) {
 }
 
 buttton.addEventListener("click", () => {
-  console.log(input.value);
-  let elemnt = creatToDo(input.value);
-
-  todoList.appendChild(elemnt);
+  if (input.value === '') {
+    alert("You must write something!");
+  } else {
+    console.log(input.value);
+    let elemnt = creatToDo(input.value);
+    todoList.appendChild(elemnt);
+    document.getElementById("form").reset();
+    console.log(elemnt.length);
+  }
 });
+
+todoList.addEventListener("click", function (ev) {
+  if (ev.target.tagName === "li") {
+    ev.target.classList.toggle("checked");
+  }
+},
+  false
+);
