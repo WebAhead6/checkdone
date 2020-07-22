@@ -7,12 +7,14 @@
 test("Submitting a new task adds it to the list", (t) => {
   
   const textField = document.querySelector("#addList");
+  const todoList = document.querySelector(".todoList");
   textField.value = "study at 5 p.m";
   const submitButton = document.querySelector("button[type='submit']");
   submitButton.click();
   const result = document.querySelector("span");
   console.log(result);
-  t.equal(result.textContent, "study at 5 p.m");
+  t.equal(result.textContent,"study at 5 p.m");
   const li=document.querySelector("li")
   li.remove();
+  todoList.classList.add("hide1");
 });
