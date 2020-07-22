@@ -3,6 +3,18 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+li {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+span {
+  width: 300px;
+}
+li button {
+  width: 25;
+  height: 25px;
+}
 .hide {
   display: none;
   font-size: 100mm;

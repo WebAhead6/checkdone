@@ -3,7 +3,7 @@ const input = document.querySelector("#addList");
 const buttton = document.querySelector("#submit");
 const form = document.querySelector("#form");
 const completedTasks = document.querySelector(".completedTasks");
-// const MyToDoList= document.querySelector (".MyToDoList")
+const completed = [];
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -17,7 +17,7 @@ function creatToDo(task) {
 
   completed.style.marginLeft = "40px";
   completed.classList.add("compBtn");
-  completed.textContent = "^";
+  completed.textContent = "✔️";
 
   remove.style.marginLeft = "20px";
   remove.classList.add("removeBtn");
@@ -40,18 +40,31 @@ function creatToDo(task) {
 }
 
 buttton.addEventListener("click", () => {
+  todoList.classList.remove("hide1");
   let element;
+
   if (input.value === "") {
     alert("You must write something!");
     return;
   } else {
     console.log(input.value);
-    todoList.classList.remove("hide1");
+
     element = creatToDo(input.value);
     todoList.appendChild(element);
     document.getElementById("form").reset();
   }
   let removeEvent = (event) => {
+    completedTasks.childNodes.forEach((task, index) => {
+      if (index == 0) {
+        return;
+      }
+      if (
+        task.firstChild.textContent ===
+        event.target.parentElement.firstChild.textContent
+      ) {
+        task.remove();
+      }
+    });
     event.target.parentElement.remove();
   };
   let removeBtns = document.querySelectorAll(".removeBtn");
@@ -64,13 +77,19 @@ buttton.addEventListener("click", () => {
   // console.log(el)
   element.childNodes[1].addEventListener("click", (event) => {
     console.log("invoked");
-
-    event.target.parentElement.style.color = "red";
     var el = event.target.parentElement.cloneNode(true);
-    el.lastChild.addEventListener("click", removeEvent);
-    el.childNodes[1].remove();
+    if (completed.includes(el.firstChild.textContent)) {
+      return;
+    }
+    event.target.parentElement.style.color = "red";
+
+    // el.lastChild.addEventListener("click", removeEvent);
+    // el.childNodes[1].remove();
+    el.lastChild.remove();
+    el.lastChild.remove();
     completedTasks.classList.remove("hide");
     completedTasks.appendChild(el);
+    completed.push(el.firstChild.textContent);
 
     //   e.target.completed();
     //   var el = li.cloneNode(true);

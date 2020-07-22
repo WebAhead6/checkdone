@@ -1,3 +1,4 @@
+
 test("Submitting a new task adds it to the list", t => {
   const textField = document.querySelector("#addList");
   textField.value = "study at 5 p.m";
@@ -21,6 +22,7 @@ test("Deleting an entry removes it from the list", t => {
   xx.lastChild.click();
   // console.log(xx);
   t.equal(document.querySelector('li'), null);
+    todoList.classList.add("hide1");
 });
 
 // Check things off my list so that I can see what I’ve done
@@ -33,3 +35,4 @@ test("Checking an entry marks it as complete", t => {
   t.equal(comTasTxt, 'study at 5 p.m');
 
 });
+
