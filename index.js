@@ -3,6 +3,7 @@ const input = document.querySelector("#addList");
 const buttton = document.querySelector("#submit");
 const form = document.querySelector("#form");
 const completedTasks = document.querySelector(".completedTasks");
+// const MyToDoList= document.querySelector (".MyToDoList")
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -13,6 +14,7 @@ function creatToDo(task) {
   const remove = document.createElement("button");
 
   const completed = document.createElement("button");
+
   completed.style.marginLeft = "40px";
   completed.classList.add("compBtn");
   completed.textContent = "^";
@@ -22,6 +24,7 @@ function creatToDo(task) {
   const textnode = document.createElement("span");
   textnode.textContent = task;
   textnode.width = "100px";
+  textnode.style.fontFamily = "initial";
   remove.textContent = "X";
   li.appendChild(textnode);
   li.appendChild(completed);
@@ -43,8 +46,8 @@ buttton.addEventListener("click", () => {
     return;
   } else {
     console.log(input.value);
+    todoList.classList.remove("hide1");
     element = creatToDo(input.value);
-
     todoList.appendChild(element);
     document.getElementById("form").reset();
   }
@@ -61,10 +64,12 @@ buttton.addEventListener("click", () => {
   // console.log(el)
   element.childNodes[1].addEventListener("click", (event) => {
     console.log("invoked");
+
     event.target.parentElement.style.color = "red";
     var el = event.target.parentElement.cloneNode(true);
     el.lastChild.addEventListener("click", removeEvent);
     el.childNodes[1].remove();
+    completedTasks.classList.remove("hide");
     completedTasks.appendChild(el);
 
     //   e.target.completed();

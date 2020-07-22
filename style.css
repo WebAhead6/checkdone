@@ -1,0 +1,58 @@
+body {
+  background-image: url("checklist2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.hide {
+  display: none;
+  font-size: 100mm;
+}
+#form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.hide1 {
+  display: none;
+}
+#submit {
+  margin: 0 auto;
+}
+#addList {
+  padding: 10px;
+  width: 400px;
+}
+.inputText {
+  display: flex;
+  justify-content: center;
+}
+.lists {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: o auto;
+}
+.todoList,
+.completedTasks {
+  min-width: 40%;
+  max-width: 50%;
+  word-wrap: break-word;
+  padding: 10mm;
+  border: #57921c solid 4px;
+  background-color: white;
+  font-size: 5mm;
+  font-family: fantasy;
+}
+
+h1 {
+  margin-bottom: 0mm;
+  text-align: center;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+h6 {
+  margin-top: 0mm;
+  text-align: center;
+  font-style: oblique;
+  font-family: fantasy;
+  font-size: 5mm;
+}
