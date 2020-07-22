@@ -10,7 +10,7 @@ form.addEventListener("submit", (event) => {
 function creatToDo(task) {
   const li = document.createElement("li");
   const remove = document.createElement("button");
-  remove.style.marginLeft= '20px';
+  remove.style.marginLeft = "20px";
   remove.classList.add("removeBtn");
   const textnode = document.createTextNode(task);
   remove.textContent = "X";
@@ -21,19 +21,21 @@ function creatToDo(task) {
 }
 
 buttton.addEventListener("click", () => {
-  console.log(input.value);
-  let elemnt = creatToDo(input.value);
+  if (input.value === "") {
+    alert("You must write something!");
+  } else {
+    console.log(input.value);
+    let elemnt = creatToDo(input.value);
 
-  todoList.appendChild(elemnt);
-
+    todoList.appendChild(elemnt);
+    document.getElementById("form").reset();
+  }
   let removeBtns = document.querySelectorAll(".removeBtn");
-  removeBtns.forEach(el =>{
+  removeBtns.forEach((el) => {
     // console.log(el)
-    el.addEventListener("click",event =>{
+    el.addEventListener("click", (event) => {
       event.target.parentElement.remove();
-
-    })
-  })
+    });
+  });
 });
-
 
