@@ -3,3 +3,4 @@ test("list item is created when submitting", (t) => {
   console.log(result.outerHTML);
   t.equal(result.outerHTML, "<li>cooking a meal</li>");
 });
+
